@@ -10,9 +10,16 @@ class Timer(Frame):
         Frame.__init__(self, parent)
         def myCountDown():
             mySeconds = Timer.entry.get()
+            mySeconds = mySeconds if mySeconds else 0 # Checks if there is no input
             timeleft = StringVar()
-            self.label3 = Label(self, textvariable = timeleft)
-            self.label3.pack(side = "top")
+
+            self.label.destroy()
+            self.entry.destroy()
+            self.button.destroy()
+            self.label3 = Label(self, text = "Time Remaining")
+            self.label4 = Label(self, textvariable = timeleft)
+            self.label3.pack(side = "top", pady = 25)
+            self.label4.pack(side = "top")
 
             # for each second from mySeconds until -1
             for t in range(int(mySeconds), 0, -1):
@@ -24,21 +31,9 @@ class Timer(Frame):
                 slp(1)
 
             self.label3.destroy()
-            self.label.destroy()
-            self.entry.destroy()
-            self.button.destroy()
+            self.label4.destroy()
             self.label2.pack(side = TOP, pady = 25)
             self.button2.pack(side = BOTTOM, pady = 0) ## pady5
-
-        def timer(seconds): # Define the timer
-            slp(int(seconds)) # sleeps for seconds
-
-            self.label.destroy()
-            self.entry.destroy()
-            self.button.destroy()
-
-            self.label2.pack(side = TOP, pady = 25)
-            self.button2.pack(side = BOTTOM, pady = 5)
 
         vcmd = (self.register(self.onValidate), '%S') # %S is the inserted string
         Timer.label = Label(self, text = 'How long do you want to set the timer for in seconds?')
