@@ -2,5 +2,5 @@
 A simple timer written in Python.
 
 ### Dependencies
-* Python 3 or above
-* Python 3 TkInter module
+* Python 2.7 or 3.x
+* Python 2.7 or 3.x TkInter module
