@@ -45,7 +45,7 @@ class Timer(Frame):
         Timer.button.pack(side = "top", pady = 3)
 
         Timer.label2 = Label(self, text = 'Timer finished.')
-        Timer.button2 = Button(self, text = 'ok', command = quit)
+        Timer.button2 = Button(self, text = 'OK', command = quit)
 
     def onValidate(self, input): # Used to validate the inserted text on entry
         if (input.isnumeric()):
@@ -57,7 +57,7 @@ class Timer(Frame):
 def main():
     win = Tk() # Frame used in Timer
     win.title('pytimer')
-    win.geometry('375x105')
+    win.geometry('350x100')
     Timer(win).pack()
     win.mainloop()
 
